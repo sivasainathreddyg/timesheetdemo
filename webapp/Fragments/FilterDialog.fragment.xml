@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog title="Filter Entries">
+        <content>
+            <VBox>
+                <Label text="Date From"/>
+                <DatePicker id="filterDateFrom" value="{/Filter/dateFrom}" displayFormat="short" valueFormat="yyyy-MM-dd"/>
+                <Label text="Date To"/>
+                <DatePicker id="filterDateTo" value="{/Filter/dateTo}" displayFormat="short" valueFormat="yyyy-MM-dd"/>
+                <Label text="Project"/>
+                <Input id="filterProject" value="{/Filter/project}"/>
+            </VBox>
+        </content>
+        <buttons>
+            <Button text="Apply" type="Accept" press="onFilterApply"/>
+            <Button text="Cancel" type="Reject" press="onFilterCancel"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

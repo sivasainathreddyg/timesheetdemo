@@ -1,0 +1,49 @@
+/* style.css */
+.sapUiResponsiveMargin {
+    margin: 2rem;
+}
+
+.sapUiTinyMarginBottom {
+    margin-bottom: 0.5rem;
+}
+
+.sapUiSmallMarginTop {
+    margin-top: 1rem;
+}
+
+.sapUiTinyMarginEnd {
+    margin-right: 0.5rem;
+}
+
+.sapUiTinyMarginStart {
+    margin-left: 0.5rem;
+}
+
+.boldTitle {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.boldLargeText {
+    font-weight: bold;
+    font-size: large; /* Adjust size as needed, e.g., larger, xx-large */
+}
+.sapUiSizeCompact .sapMListTblCell.sapMListTblHeaderCell {
+    padding-left: 59px;
+}
+
+.ProjectNamecloumn{
+    padding-right: 10px;
+}
+.customRowSpacing {
+    padding: -1 rem !important; /* Reduce padding between rows */
+    margin: 0 !important;
+}
+
+.customCellSpacing > * {
+    padding: -1 rem !important; /* Reduce padding within cells */
+    margin: 0 !important;
+}
+.moveRight {
+    margin-left: 10px !important;; /* Adjust the left margin as needed */
+}
+

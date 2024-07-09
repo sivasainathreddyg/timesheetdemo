@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog title="Entry Dialog">
+        <content>
+            <VBox>
+                <Label text="Date"/>
+                <DatePicker id="entryDate" displayFormat="short" valueFormat="yyyy-MM-dd"/>
+                <Label text="Project"/>
+                <Input id="entryProject"/>
+                <Label text="Hours"/>
+                <Input id="entryHours" type="Number"/>
+            </VBox>
+        </content>
+        <buttons>
+            <Button text="Save" type="Accept"/>
+            <Button text="Cancel" type="Reject" press="onCancelEntry"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

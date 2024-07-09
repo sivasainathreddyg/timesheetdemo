@@ -1,0 +1,111 @@
+<mvc:View
+    controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+
+    <!-- Navigation buttons and date range (sticky) -->
+    <VBox class="sapUiSmallMargin" id="stickyHeader">
+        <HBox justifyContent="SpaceBetween" alignItems="Center" class="sapUiTinyMarginBottom">
+            <Button text="Previous Week" press="onPreviousWeek" />
+            <Text text="{/dateRange}" class="sapUiTinyMarginStart sapUiTinyMarginEnd boldLargeText" />
+            <Button text="Next Week" press="onNextWeek" />
+            <Button text="Go to current week" press="onCurrentWeek" class="sapUiTinyMarginEnd" />
+        </HBox>
+
+        <!-- Timesheet Allocations Title and action buttons (sticky) -->
+        <HBox justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMarginTop sapUiTinyMarginBottom">
+            <Text text="Timesheet Allocations" class="boldTitle" />
+            <HBox>
+                <Button text="Save" press="onAddSave" class="sapUiTinyMarginEnd" />
+                <Button text="Approval" press="onAddNewEntry" />
+                
+            </HBox>
+        </HBox>
+    </VBox>
+
+    <!-- ScrollContainer for Table -->
+    <ScrollContainer
+        width="100%"
+        height="calc(100vh - 200px)" 
+        horizontal="false"
+        vertical="true"
+        class="sapUiNoContentPadding sapUiResponsiveContentPadding">
+
+        <!-- Allocation table -->
+        <Table
+            id="allocationTable"
+            inset="false"
+            class="sapUiResponsiveMargin sapUiNoContentPadding"
+            items="{path: '/allocations'}">
+            <columns>
+                <Column width="10%">
+                    <Text text="Day" textAlign="Center" />
+                </Column>
+                <Column width="15%">
+                    <Text text="Project Name" textAlign="Begin" />
+                </Column>
+                <Column width="25%">
+                    <Text text="Description" textAlign="Center" />
+                </Column>
+                <Column width="10%">
+                    <Text text="Hours" textAlign="Center" />
+                </Column>
+                <Column width="15%">
+                    <Text text="Total Hours" textAlign="Center" />
+                </Column>
+                <Column width="5%">
+                    <Text text="" />
+                </Column>
+                <Column width="5%">
+                    <Text text="" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem class="customRowSpacing">
+                    <cells>
+                        <VBox class="customCellSpacing">
+                            <Text text="{day}" />
+                            <Text text="{date}" />
+                        </VBox>
+                        <VBox class="customCellSpacing">
+                            <Input value="{project}" placeholder="Enter project name" />
+                        </VBox>
+                        <VBox class="sapUiSmallMargin customCellSpacing">
+                            <!-- TextArea for user input -->
+                            <TextArea
+                                id="descriptionInput"
+                                width="100%"
+                                placeholder="Enter description (up to 100 words)"
+                                maxLength="1000"
+                                liveChange="onDescriptionLiveChange" />
+                            <!-- Text for displaying word count -->
+                        </VBox>
+                        <HBox justifyContent="Center" class="customCellSpacing">
+                            <Input value="{hours}" width="3rem" change="onHoursChange" />
+                        </HBox>
+                        <HBox justifyContent="Center" class="customCellSpacing">
+                            <Text text="{total}" />
+                        </HBox>
+                        <HBox justifyContent="Center" class="customCellSpacing">
+                            <Button icon="sap-icon://delete" press="onDeletePress" />
+                        </HBox>
+                        <HBox justifyContent="Center" class="customCellSpacing">
+                            <Button icon="sap-icon://add" press="onAddPress" tooltip="Add New project" />
+                        </HBox>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    
+
+    <!-- Footer buttons (sticky) -->
+    <HBox justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMarginTop" >
+        <Button text="Approved" type="Accept" press="onReleaseEntries" />
+       
+    </HBox>
+    </ScrollContainer>
+
+</mvc:View>
